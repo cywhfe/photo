@@ -1,7 +1,6 @@
 package com.chidi.it.controller;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.SQLException;
 
@@ -21,11 +20,10 @@ import com.chidi.it.util.DBUtil;
 public class IndexServlet extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;
-//	private Connection conn;
 
 	@Override
-	protected void doGet(final HttpServletRequest req,
-			final HttpServletResponse resp) throws ServletException,
+	protected void doGet(final HttpServletRequest request,
+			final HttpServletResponse response) throws ServletException,
 			IOException {
 		Connection conn = null;
 		try {
@@ -42,9 +40,6 @@ public class IndexServlet extends HttpServlet {
 			DbUtils.closeQuietly(conn);
 		}
 
-		final PrintWriter out = resp.getWriter();
-		out.println("SimpleServlet Executed");
-		out.flush();
-		out.close();
+		response.sendRedirect("index.jsp");
 	}
 }

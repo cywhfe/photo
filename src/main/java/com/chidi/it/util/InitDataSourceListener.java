@@ -36,8 +36,8 @@ public class InitDataSourceListener implements ServletContextListener {
 			basicDataSource.setDriverClassName(driverName);
 			basicDataSource.setInitialSize(Integer.valueOf(initialSize));
 			basicDataSource.setMaxActive(Integer.valueOf(maxActive));
-			basicDataSource.setMaxIdle(Integer.valueOf(maxIdle)); // 最大闲置个数
-			basicDataSource.setMaxWait(Integer.valueOf(maxWait)); // 最大等待时间
+			basicDataSource.setMaxIdle(Integer.valueOf(maxIdle));
+			basicDataSource.setMaxWait(Integer.valueOf(maxWait));
 			System.out.println(basicDataSource);
 			DBUtil.setDataSource(basicDataSource);
 		} catch (IOException e) {

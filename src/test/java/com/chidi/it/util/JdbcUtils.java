@@ -10,7 +10,7 @@ import javax.sql.DataSource;
 import org.apache.commons.dbcp.BasicDataSourceFactory;
 
 public class JdbcUtils {
-
+ 
 	private static DataSource ds;
 
 	private static ThreadLocal<Connection> tl = new ThreadLocal<Connection>();

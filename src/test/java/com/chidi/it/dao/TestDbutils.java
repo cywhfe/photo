@@ -11,7 +11,7 @@ import org.junit.Test;
 
 import com.chidi.it.entity.User;
 import com.chidi.it.util.JdbcUtils;
-
+ 
 @Ignore
 public class TestDbutils {
 	// 使用dbutils完成数据库的crud

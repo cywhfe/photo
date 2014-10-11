@@ -9,10 +9,45 @@
 		<servlet-name>index</servlet-name>
 		<servlet-class>com.chidi.it.controller.IndexServlet</servlet-class>
 	</servlet>
-	
 	<servlet-mapping>
 		<servlet-name>index</servlet-name>
 		<url-pattern>/index</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>photo-add</servlet-name>
+		<servlet-class>com.chidi.it.controller.photo.PhotoAddServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>photo-add</servlet-name>
+		<url-pattern>/photo/add</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>photo-modify</servlet-name>
+		<servlet-class>com.chidi.it.controller.photo.PhotoModifyServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>photo-modify</servlet-name>
+		<url-pattern>/photo/modify</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>photo-delete</servlet-name>
+		<servlet-class>com.chidi.it.controller.photo.PhotoDeleteServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>photo-delete</servlet-name>
+		<url-pattern>/photo/delete</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>photo-list</servlet-name>
+		<servlet-class>com.chidi.it.controller.photo.PhotoListServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>photo-list</servlet-name>
+		<url-pattern>/photo/list</url-pattern>
 	</servlet-mapping>
 	
 	<listener>  
