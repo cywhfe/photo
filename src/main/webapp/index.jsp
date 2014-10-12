@@ -16,27 +16,10 @@
 		<div id="dateDiv" class="span4"></div>
 		<div id="photoDiv" class="span8">
 			<div data-ride="carousel" class="carousel slide" id="carousel-container">
-				<!-- 图片容器 -->
-				<div class="carousel-inner">
-					<div class="item"><img alt="第一张图" src="${ctx}/static/images/1.jpg"/></div>
-					<div class="item active"><img alt="第二张图" src="${ctx}/static/images/2.jpg"/></div>
-					<div class="item"><img alt="第三张图" src="${ctx}/static/images/3.jpg"/></div>
-				</div>
-				<!-- 指示符 -->
-				<ol class="carousel-indicators">
-					<li date-slide-to="0" data-target="#carousel-container"></li>
-					<li date-slide-to="1" data-target="#carousel-container"></li>
-					<li date-slide-to="2" data-target="#carousel-container"></li>
-				</ol>
-				<!-- 左右控制按钮 -->
-<!-- 				<a data-slide="prev" href="#carousel-container" class="left carousel-control">
-					<span class="glyphicon glyphicon-chevron-left"></span>
-				</a>
-				<a data-slide="next" href="#carousel-container" class="right carousel-control">
-					<span class="glyphicon glyphicon-chevron-right"></span>
-				</a> -->
-				<a class="carousel-control left" href="#carousel-container" data-slide="prev">&lsaquo;</a>
-  				<a class="carousel-control right" href="#carousel-container" data-slide="next">&rsaquo;</a>
+				<div class="carousel-inner" id="photos"></div>
+				<ol class="carousel-indicators" id="container"></ol>
+				<a class="carousel-control left" id="prev" href="#carousel-container" data-slide="prev">&lsaquo;</a>
+  				<a class="carousel-control right" id="next" href="#carousel-container" data-slide="next">&rsaquo;</a>
 			</div>
 		</div>
 	</div>
@@ -47,11 +30,44 @@
 		WdatePicker({
 			eCont : 'dateDiv',
 			onpicked : function(dp) {
-				alert('你选择的日期是:' + dp.cal.getDateStr());
-				//TODO:
-				//add photo info
+				ajaxPhotoShow(dp.cal.getDateStr());
 			}
-		})
+		});
+		//click today date
+		ajaxPhotoShow(new Date().format("yyyy-MM-dd"));
 	});
+	
+	function ajaxPhotoShow(date){
+		$.ajax({
+			url : "${ctx}/photoShow",
+			method : "post",
+			dataType : "json",
+			async : false,
+			data : {
+				date : date
+			},
+		    success : function(data){
+		    	$("#photos").empty();
+		    	$("#container").empty();
+		    	$.each(data, function(index, item){
+		    		$("#photos").append('<div class="item"><img alt="' + item.name + '" src="${ctx}/tmp/' + item.path + '"/></div>');
+		    		$("#container").append('<li date-slide-to="' + index + '" data-target="#carousel-container"></li>');
+		    	});
+		    	if(data.length > 0){
+		    		console.log("data");
+		    		$("#prev").attr("href", "#carousel-container");
+		    		$("#next").attr("href", "#carousel-container");
+			    	$("carousel").carousel("pause").removeData();
+			    	$('.carousel').carousel(0);
+			    	$("#next").click();
+		    	}else{
+		    		console.log("no data");
+		    		$("#photos").append('<div class="span ">暂无图片</div>');
+		    		$("#prev").attr("href", "#");
+		    		$("#next").attr("href", "#");
+		    	}
+		    }
+		});		
+	}
 </script>
 </html>

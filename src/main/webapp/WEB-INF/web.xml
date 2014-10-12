@@ -5,50 +5,64 @@
 
 	<display-name>photo</display-name>
 	
+	<!-- picture show start -->
 	<servlet>
-		<servlet-name>index</servlet-name>
+		<servlet-name>IndexServlet</servlet-name>
 		<servlet-class>com.chidi.it.controller.IndexServlet</servlet-class>
 	</servlet>
 	<servlet-mapping>
-		<servlet-name>index</servlet-name>
+		<servlet-name>IndexServlet</servlet-name>
 		<url-pattern>/index</url-pattern>
 	</servlet-mapping>
 	
 	<servlet>
-		<servlet-name>photo-add</servlet-name>
+		<servlet-name>PhotoShowServlet</servlet-name>
+		<servlet-class>com.chidi.it.controller.PhotoShowServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>PhotoShowServlet</servlet-name>
+		<url-pattern>/photoShow</url-pattern>
+	</servlet-mapping>
+	
+	<!-- picture show end -->
+	
+	<!-- photo manager parts start -->
+	<servlet>
+		<servlet-name>PhotoAddServlet</servlet-name>
 		<servlet-class>com.chidi.it.controller.photo.PhotoAddServlet</servlet-class>
 	</servlet>
 	<servlet-mapping>
-		<servlet-name>photo-add</servlet-name>
+		<servlet-name>PhotoAddServlet</servlet-name>
 		<url-pattern>/photo/add</url-pattern>
 	</servlet-mapping>
 	
 	<servlet>
-		<servlet-name>photo-modify</servlet-name>
+		<servlet-name>PhotoModifyServlet</servlet-name>
 		<servlet-class>com.chidi.it.controller.photo.PhotoModifyServlet</servlet-class>
 	</servlet>
 	<servlet-mapping>
-		<servlet-name>photo-modify</servlet-name>
+		<servlet-name>PhotoModifyServlet</servlet-name>
 		<url-pattern>/photo/modify</url-pattern>
 	</servlet-mapping>
 	
 	<servlet>
-		<servlet-name>photo-delete</servlet-name>
+		<servlet-name>PhotoDeleteServlet</servlet-name>
 		<servlet-class>com.chidi.it.controller.photo.PhotoDeleteServlet</servlet-class>
 	</servlet>
 	<servlet-mapping>
-		<servlet-name>photo-delete</servlet-name>
+		<servlet-name>PhotoDeleteServlet</servlet-name>
 		<url-pattern>/photo/delete</url-pattern>
 	</servlet-mapping>
 	
 	<servlet>
-		<servlet-name>photo-list</servlet-name>
+		<servlet-name>PhotoListServlet</servlet-name>
 		<servlet-class>com.chidi.it.controller.photo.PhotoListServlet</servlet-class>
 	</servlet>
 	<servlet-mapping>
-		<servlet-name>photo-list</servlet-name>
+		<servlet-name>PhotoListServlet</servlet-name>
 		<url-pattern>/photo/list</url-pattern>
 	</servlet-mapping>
+	<!-- photo manager parts end -->
 	
 	<listener>  
 	    <listener-class>com.chidi.it.util.InitDataSourceListener</listener-class>  
@@ -79,6 +93,6 @@
 	</error-page>
 	<!-- 出错页面定义 end -->
 	<welcome-file-list>
-		<welcome-file>index.html</welcome-file>
+		<welcome-file>index.jsp</welcome-file>
 	</welcome-file-list>
 </web-app>

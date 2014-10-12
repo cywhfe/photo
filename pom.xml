@@ -15,6 +15,7 @@
 		<commons-io.version>2.0.1</commons-io.version>
 		<guava.version>13.0.1</guava.version>
 		<joda-time.version>2.1</joda-time.version>
+		<jackson.version>2.0.6</jackson.version>
 
 		<!-- jdk -->
 		<jdk.version>1.6</jdk.version>
@@ -34,7 +35,7 @@
 			<scope>provided</scope>
 		</dependency>
 
-		<!-- GENERAL UTILS begin -->
+		<!-- GENERAL UTILS -->
 		<dependency>
 			<groupId>org.apache.commons</groupId>
 			<artifactId>commons-lang3</artifactId>
@@ -50,6 +51,14 @@
 			<artifactId>joda-time</artifactId>
 			<version>${joda-time.version}</version>
 		</dependency>
+
+		<!-- JSON begin -->
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-databind</artifactId>
+			<version>${jackson.version}</version>
+		</dependency>
+		<!-- JSON end -->
 
 		<!-- file upload -->
 		<dependency>
